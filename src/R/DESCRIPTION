@@ -1,0 +1,16 @@
+Package: loadforecast
+Title: Heating and cooling load forecast.
+Description: Visualization of heating and cooling load forecast
+Version: 1.0
+License: GPL-3
+Author: Yoni Ben-Meshulam
+Maintainer: Yoni Ben-Meshulam <yoni.bmesh@gmail.com>
+Depends:
+    R (>= 2.15),
+    ggplot2,
+    plyr,
+    reshape,
+    rgdal,
+    OpenStreetMap
+Suggests:
+    
