@@ -1,8 +1,8 @@
-\name{readForecast}
-\alias{readForecast}
+\name{read_forecast}
+\alias{read_forecast}
 \title{Loads temperature forecast data for the Continential United States.}
 \usage{
-readForecast()
+read_forecast()
 }
 \value{
 weather forecast as a SpatialPixelsDataFrame
@@ -21,6 +21,6 @@ See
 http://www.dpi.inpe.br/gilberto/tutorials/software/R-contrib/sp/html/SpatialPixelsDataFrame-class.html
 }
 \examples{
-temperature_forecast <- readForecast()
+temperature_forecast <- read_forecast()
 }
 

@@ -13,7 +13,7 @@
 #' @importFrom rgdal readGDAL
 #' @export
 #' @examples
-#' temperature_forecast <- readForecast()
-readForecast <- function()
+#' temperature_forecast <- read_forecast()
+read_forecast <- function()
   readGDAL('ftp://tgftp.nws.noaa.gov/SL.us008001/ST.opnl/DF.gr2/DC.ndfd/AR.conus/VP.001-003/ds.temp.bin')
 

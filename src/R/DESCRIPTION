@@ -7,10 +7,6 @@ Author: Yoni Ben-Meshulam
 Maintainer: Yoni Ben-Meshulam <yoni.bmesh@gmail.com>
 Depends:
     R (>= 2.15),
-    ggplot2,
-    plyr,
-    reshape,
-    rgdal,
-    OpenStreetMap
+    rgdal
 Suggests:
     

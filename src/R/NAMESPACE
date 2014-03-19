@@ -1,3 +1,5 @@
-export(calculate_degree_days)
-export(readForecast)
+export(calculate_degree_hours)
+export(plot_dh)
+export(plot_dh_animation)
+export(read_forecast)
 importFrom(rgdal,readGDAL)
