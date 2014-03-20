@@ -8,6 +8,8 @@ plot_dh(forecast, attribute, balance_point = BALANCE_POINT)
   \item{forecast}{the weather forecast}
 
   \item{attribute}{the attribute to plot}
+
+  \item{balance_point}{to use for temperature color ranges}
 }
 \description{
 Plots the degree-hours.

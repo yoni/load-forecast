@@ -1,7 +1,7 @@
 #' Plots the degree-hours.
 #' @param forecast the weather forecast
 #' @param attribute the attribute to plot
-#' @balance_point to use for temperature color ranges
+#' @param balance_point to use for temperature color ranges
 #' @export
 #' @examples
 #' data(forecast.dh)
