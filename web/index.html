@@ -95,8 +95,8 @@
                         over time, humidity, and individual household set points.
                     </li>
                     <li>
-                        The dates and times are very likely off by up to 3-hours, since we're using
-                        the current system time as an estimate for the start of the forecasts. We need to dig into
+                        The dates and times are very likely off by up to 3-hours, and almost definitely have the wrong time zone,
+                        since we're using the current system time as an estimate for the start of the forecasts. We need to dig into
                         the NDFD API and see if there's some metadata to be had.
                     </li>
                 </ul>
@@ -145,7 +145,7 @@
             <p>
                 {{forecast.description}}
             </p>
-            <a href="{{forecast.gif}}"><img ng-src="{{forecast.gif}}" height="50%" width="50%" title="Click to see forecast for {{forecast.name}}"/></a>
+            <a href="{{forecast.gif}}"><img ng-src="{{forecast.gif}}" height="70%" width="70%" title="Click to see forecast for {{forecast.name}}"/></a>
             <video width="320" height="240" controls>
                 <source src="{{forecast.mpg}}" type="video/mp4">
                 Your browser does not support the video tag.
