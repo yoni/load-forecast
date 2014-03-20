@@ -11,6 +11,7 @@ function Ctrl($scope) {
     $scope.forecasts = [
         {
             name : "Days 1 to 3",
+            description : "For days 1 to 3, the NDFD provides forecasts at 3-hour intervals.",
             gif : root1to3 + '2014-03-22T2300-0400_degree_day_animation.gif',
             mpg : root1to3 + '2014-03-22T2300-0400_degree_day_animation.mpg',
             hoursPerFrame : 3,
@@ -43,6 +44,7 @@ function Ctrl($scope) {
         },
         {
             name : "Days 4 to 7",
+            description : "For days 4 to 7, the NDFD provides forecasts at 6-hour intervals.",
             gif : root4to7 + '2014-03-26T2000-0400_degree_day_animation.gif',
             mpg : root4to7 + '2014-03-26T2000-0400_degree_day_animation.mpg',
             hoursPerFrame : 6,

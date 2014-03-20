@@ -50,18 +50,47 @@
             we call cooling degrees. In both cases, we disallow negative degree-hours, such that there will either be
             zero or more HDH and CDH.
         </p>
-        <p><a class="btn btn-primary btn-lg" role="button">Learn more about the implementation »</a></p>
+        <p>
+            <a class="btn btn-primary btn-lg" role="button" onclick="$('#more-info').toggleClass('hide')">
+                Learn more about the implementation »
+            </a>
+        </p>
+        <div id="more-info" class="hide">
+            <p>
+                Using weather forecast data from the <a href="http://www.nws.noaa.gov/ndfd/">National Digital Forecast Database (NDFD)</a>,
+                we were able to implement the CDH/HDH balance-point algorithm for the entire United States, and plot the
+                7-day heating and cooling load forecast.
+            </p>
+            <p>
+                A good next step would be to introduce regional average set points for load estimation, using the
+                <a href="http://www.eia.gov/todayinenergy/detail.cfm?id=14771">EIA's</a> average balance points.
+            </p>
+            <p>
+                Obviously, we could determine even more accurate load forecasts using state-of-the-art methodologies. If we
+                were doing a deeper analysis, we might consider calculating heat buildup over time, humidity, and
+                individual household set points.
+            </p>
+        </div>
     </div>
 </div>
 
 <div class="container" ng-controller="Ctrl">
     <div class="row">
-
+        <p class="alert alert-info">
+            In the plots below, the blue areas represent locations where we forecast larger
+            <strong class="label label-primary">cooling</strong> loads, whereas the red areas represent forecasted
+            <strong class="label label-danger">heating</strong> loads. Zero and near-zero loads
+            are represented by white hues.
+        </p>
+    </div>
+    <div class="row">
         <div ng-repeat="forecast in forecasts" class="col-md-6">
             <h2>{{forecast.name}}</h2>
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-            <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-            <a href="{{forecast.gif}}"><img ng-src="{{forecast.gif}}" height="50%" width="50%"/></a>
+            <p>
+                {{forecast.description}}
+            </p>
+            <p><a class="btn btn-default" href="{{forecast.gif}}" role="button">View forecast »</a></p>
+            <a href="{{forecast.gif}}"><img ng-src="{{forecast.gif}}" height="50%" width="50%" title="Click to see forecast for {{forecast.name}}"/></a>
             <div ng-repeat="image in forecast.images">
                 <a href="{{image}}" class="thumbnail">
                     <p>
