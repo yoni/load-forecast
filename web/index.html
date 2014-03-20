@@ -35,40 +35,87 @@
     <div class="container">
         <h1>Heating and Cooling Load Forecast</h1>
         <p>
-            Heating and cooling systems are by far the greatest consumers of energy in residential settings. Wouldn't it
-            be nice if we could forecast how much energy people are likely to expend on heating and cooling?
+            Heating, Ventilation, and Air Conditioning (HVAC) systems are the largest energy consuming devices in
+            most buildings. Wouldn't it be nice if we could forecast how much energy buildings are likely to expend
+            HVAC systems over the next 7 days?
         </p>
         <p>
-            Using the weather forecast, we can estimate heating and cooling load by using
-            the concept of heating and cooling <a href="http://en.wikipedia.org/wiki/Heating_degree_day">degree hours</a>
-            , known as HDH and CDH. The idea is to assume a comfortable temperature, say 65&deg;F - we call this the balance
-            point - and see how far the forecast temperature will be from that balance point.
+            Leveraging the weather forecast, we estimate heating and cooling load by using
+            a concept called heating and cooling <a href="http://en.wikipedia.org/wiki/Heating_degree_day">degree days</a>,
+            also known as heating-degree-hours (HDH) and cooling-degree-hours (CDH).
         </p>
         <p>
-            The number of degrees that the actual temperature point falls below the balance point, we call heating
-            degrees. Similarly, the  number of degrees that the forecast temperature falls above the balance point,
-            we call cooling degrees. In both cases, we disallow negative degree-hours, such that there will either be
-            zero or more HDH and CDH.
+            The idea is fairly simple. We assume a comfortable temperature, which we call the <strong>balance point</strong>,
+            and see how far the forecast temperature will be from that balance point. The number of degrees that the
+            actual temperature point falls below the balance point, we call heating
+            degrees. Similarly, the  number of degrees that the forecast temperature is above the balance point,
+            we call cooling degrees. In both cases, we disallow negative degree-hours, such that there will always be
+            zero or more HDHs and CDHs.
+            In practice, choosing the right balance point can be tricky. For the sake of this exercise, we'll use 16&deg;C.
         </p>
         <p>
             <a class="btn btn-primary btn-lg" role="button" onclick="$('#more-info').toggleClass('hide')">
-                Learn more about the implementation »
+                More »
             </a>
         </p>
         <div id="more-info" class="hide">
             <p>
                 Using weather forecast data from the <a href="http://www.nws.noaa.gov/ndfd/">National Digital Forecast Database (NDFD)</a>,
                 we were able to implement the CDH/HDH balance-point algorithm for the entire United States, and plot the
-                7-day heating and cooling load forecast.
+                7-day heating and cooling load forecast. In the implementation, we use positive degree-hours to denote
+                heating and negative degree-hours to denote cooling, facilitating a plot which includes both metrics
+                in a single view.
             </p>
-            <p>
-                A good next step would be to introduce regional average set points for load estimation, using the
-                <a href="http://www.eia.gov/todayinenergy/detail.cfm?id=14771">EIA's</a> average balance points.
+            <p class="alert alert-warning">
+                Some caveats:
+                <ul>
+                    <li>
+                        Read why HDD and CDD methods for estimating load
+                        <a href="http://en.wikipedia.org/wiki/Heating_degree_day#Problems">are inherently problematic</a>.
+                    </li>
+                    <li>
+                        Due to the fact that we're using raw high resolution forecasts (i.e. 3-6 hour, instead of Day),
+                        loads will be skewed by short-term differences in temperature, showing more extreme heating and
+                        cooling forecasts. That said, from a certain lens, one might consider this a "feature", since we
+                        also benefit from more granular forecasts.
+                    </li>
+                    <li>
+                        A good next step would be to introduce regional average set points for load estimation, using
+                        the <a href="http://www.eia.gov/todayinenergy/detail.cfm?id=14771">EIA's</a> regional average balance
+                        points.
+                    </li>
+                    <li>
+                        Obviously, we could determine even more accurate load forecasts using state-of-the-art
+                        methodologies. If we were doing a deeper analysis, we might consider calculating heat buildup
+                        over time, humidity, and individual household set points.
+                    </li>
+                </ul>
             </p>
-            <p>
-                Obviously, we could determine even more accurate load forecasts using state-of-the-art methodologies. If we
-                were doing a deeper analysis, we might consider calculating heat buildup over time, humidity, and
-                individual household set points.
+            <p class="alert alert-info">
+                The implementation uses a series of libraries and APIs:
+
+            <ul>
+                <li>
+                    The National Weather Service's <a href="http://www.nws.noaa.gov/ndfd/technical.htm">National Digital Forecast Database</a>.
+                    We're using their FTP end point, which is updated every three hours.
+                </li>
+                <li>
+                    <a href="http://www.r-project.org/">The R Project for Statistical Programming</a>, used to load weather forecast data,
+                    calculate heating and cooling degree days, and plot results. Additional R package dependencies are required for this
+                    project to run. These may be found in the `DESCRIPTION` file under the R package root.
+                </li>
+                <li>
+                    <a href="http://www.gdal.org/">gdal</a> -- Geospatial Data Abstraction Library. Backs the `rgdal` R package, which is used to
+                    load and plot weather forecast data.
+                </li>
+                <li>
+                    <a href="http://www.ffmpeg.org/">ffmpeg</a> -- used to generate the MPEG animated forecast
+                </li>
+                <li>
+                    <a href="http://www.imagemagick.org/">ImageMagick</a> -- used to generate the GIF and MPEG animated forecasts
+                </li>
+            </ul>
+
             </p>
         </div>
     </div>
