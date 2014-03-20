@@ -3,7 +3,7 @@
 \title{Plots the degree days as an animation.}
 \usage{
 plot_dh_animation(forecast, path, start_time, hours_per_interval = 3,
-  height = 1200, width = 1800, delay = 500,
+  height = 1200, width = 1800, delay = hours_per_interval * 150,
   file_time_format = "\%Y-\%m-\%dT\%H\%M\%z",
   title_time_format = "\%a \%m-\%d-\%Y \%H:\%M \%Z")
 }
@@ -22,7 +22,9 @@ plot_dh_animation(forecast, path, start_time, hours_per_interval = 3,
 
   \item{width}{of the image. See `png`}
 
-  \item{delay}{between frames in milliseconds}
+  \item{delay}{between frames in milliseconds. Default is
+  set according to the hours in each interval, in order to
+  make the animated versions of comparable length.}
 
   \item{file_time_format}{the date time format to use for
   file names.}

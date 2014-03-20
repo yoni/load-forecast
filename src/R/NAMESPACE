@@ -1,4 +1,5 @@
 export(calculate_degree_hours)
+export(load_forecast_and_generate_plots)
 export(plot_dh)
 export(plot_dh_animation)
 export(read_forecast)
