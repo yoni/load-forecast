@@ -2,18 +2,12 @@
 \alias{plot_dh}
 \title{Plots the degree-hours.}
 \usage{
-plot_dh(forecast, attribute, palette = c("dark blue", "white", "dark red"),
-  gradients = 50, balance_point = BALANCE_POINT)
+plot_dh(forecast, attribute, balance_point = BALANCE_POINT)
 }
 \arguments{
   \item{forecast}{the weather forecast}
 
   \item{attribute}{the attribute to plot}
-
-  \item{palette}{the color palette to use}
-
-  \item{gradients}{the number of coor gradients to use.
-  more is smoother}
 }
 \description{
 Plots the degree-hours.

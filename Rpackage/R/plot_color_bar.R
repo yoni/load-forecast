@@ -1,5 +1,7 @@
 #' Plots a color bar, to be used as a legend.
 #' @export
+#' @examples
+#' plot_color_bar()
 plot_color_bar <- function(balance_point=BALANCE_POINT) {
 
     limits <- degree_hour_limits(balance_point)
