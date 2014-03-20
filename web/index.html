@@ -35,14 +35,10 @@
     <div class="container">
         <h1><span class="glyphicon glyphicon-home"></span> Heating and Cooling Load Forecast</h1>
         <p>
-            Heating, Ventilation, and Air Conditioning (HVAC) systems are the largest energy consuming devices in
-            most buildings. Wouldn't it be nice if we could forecast how much energy buildings are likely to expend
-            HVAC systems over the next 7 days?
+            Heating, Ventilation, and Air Conditioning (HVAC) systems are the greediest energy-consuming devices in most buildings. So having a national 7-day forecast of how much energy those buildings’ HVAC systems are likely to expend is a very valuable tool for predicting energy loads by geographic region.
         </p>
         <p>
-            Leveraging the weather forecast, we estimate heating and cooling load by using
-            a concept called heating and cooling <a href="http://en.wikipedia.org/wiki/Heating_degree_day">degree days</a>,
-            also known as heating-degree-hours (HDH) and cooling-degree-hours (CDH).
+            Knowing that energy usage forecasts are directly related to temperature forecasts, I can estimate heating and cooling load by using a concept called heating and cooling <a href="http://en.wikipedia.org/wiki/Heating_degree_day">degree days</a>, also known as heating-degree-hours (HDH) and cooling-degree-hours (CDH).
         </p>
         <p>
             The idea is fairly simple. We assume a comfortable temperature, which we call the <strong>balance point</strong>,
@@ -54,23 +50,23 @@
             In practice, choosing the right balance point can be tricky. For the sake of this exercise, we'll use 16&deg;C.
         </p>
         <p>
-            <a class="btn btn-primary btn-lg" role="button" onclick="$('#more-info').toggleClass('hide')">
-                To delve deeper in the implementation details and the complexity of this problem, READ MORE HERE »
+            This direct correlation between temperature degrees and thermostat degrees could of course be treated more rigorously. 
+			<a class="btn btn-primary btn-lg" role="button" onclick="$('#more-info').toggleClass('hide')">
+                To delve deeper in the complexity of this problem and important caveats that surround it, READ MORE HERE.»
             </a>
         </p>
         <div id="more-info" class="hide">
             <p>
                 Using weather forecast data from the <a href="http://www.nws.noaa.gov/ndfd/">National Digital Forecast Database (NDFD)</a>,
-                we are able to implement the CDH/HDH balance-point algorithm for the continental United States, and plot the
-                7-day heating and cooling load forecast. In the implementation, we use positive degree-hours to denote
-                heating and negative degree-hours to denote cooling, facilitating a plot which includes both metrics
-                in a single view.
+                I'm able to implement the CDH/HDH balance-point algorithm for the continental United States, and plot the
+                7-day heating and cooling load forecast. In this implementation, positive degree-hours denote heating and negative degree-hours denote cooling, which facilitates a plot that includes both metrics in a single view.
             </p>
             <p class="alert alert-warning">
                 <span class="glyphicon glyphicon-thumbs-down"></span> Caveats:
-                <ul>
+                <p>Given more time, I would implement more nuanced methods to represent the complex relationship between degree-hours and weather forecast. Several important issues would be top-of-mind as I expanded my analysis:</p>
+				<ul>
                     <li>
-                        Read why HDD and CDD methods for estimating load
+                        HDD and CDD methods for estimating load
                         <a href="http://en.wikipedia.org/wiki/Heating_degree_day#Problems">are inherently problematic</a>.
                     </li>
                     <li>
@@ -78,11 +74,6 @@
                         loads will be skewed by short-term differences in temperature, showing more extreme heating and
                         cooling forecasts. That said, from a certain lens, one might consider this a "feature", since we
                         also benefit from more granular forecasts.
-                    </li>
-                    <li>
-                        The use of a dynamic three-color scale (i.e. blue, white, red) is problematic, since the color scheme will always
-                        fit the entire spectrum. I.e. the actual plot intensities will vary by season, and always show
-                        a high heating and high cooling regions. Instead, we need to tie color hues to precise values.
                     </li>
                     <li>
                         A good next step would be to introduce regional average set points for load estimation, using
@@ -94,10 +85,13 @@
                         methodologies. If we were doing a deeper analysis, we might consider calculating heat buildup
                         over time, humidity, and individual household set points.
                     </li>
+					<li>
+                        The use of a dynamic three-color scale (i.e. blue, white, red) is problematic, since the color scheme will always
+                        fit the entire spectrum. I.e. the actual plot intensities will vary by season, and always show
+                        a high heating and high cooling regions. Instead, we need to tie color hues to precise values.
+                    </li>
                     <li>
-                        The dates and times are very likely off by up to 3-hours, and almost definitely have the wrong time zone,
-                        since we're using the current system time as an estimate for the start of the forecasts. We need to dig into
-                        the NDFD API and see if there's some metadata to be had.
+                        The dates and times are very likely off by up to three hours, and almost definitely have the wrong time zone, since we're using the current system time as an estimate for the start of the forecasts. We need to dig into the NDFD API and see if there's metadata we can use to address this.
                     </li>
                 </ul>
             </p>
