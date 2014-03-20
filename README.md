@@ -12,7 +12,16 @@ calculate heating and cooling degree days, and plot results. Additional R packag
 project to run. These may be found in the `DESCRIPTION` file under the R package root.
 * [ffmpeg](http://www.ffmpeg.org/) -- used to generate the MPEG animated forecast
 * [ImageMagick](http://www.imagemagick.org/) -- used to generate the HIF and MPEG animated forecasts
+* [rbundler](http://www.github.com/yoni/rbundler) -- used in the binary script, though not strictly required for any
+ad-hoc work
 
 These dependencies should be available for any *NIX machine.
 
 I used [homebrew](http://brew.sh/) to install them on OS X.
+
+
+## Refreshing the Forecast Plots
+
+Installs all R package dependencies and runs end-to-end forecasts:
+
+    ./bin/generate_load_forecasts.Rscript

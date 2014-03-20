@@ -1,0 +1,9 @@
+#!/usr/bin/env Rscript
+# An end-to-end script for refreshing the forecast plots.
+# Leverages rbundler to install the package and its dependencies.
+
+setwd('Rpackage')
+library(rbundler)
+bundle()
+library(loadforecast)
+load_forecast_and_generate_plots('../out')

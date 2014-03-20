@@ -142,6 +142,10 @@
             </p>
             <p><a class="btn btn-default" href="{{forecast.gif}}" role="button">View forecast »</a></p>
             <a href="{{forecast.gif}}"><img ng-src="{{forecast.gif}}" height="50%" width="50%" title="Click to see forecast for {{forecast.name}}"/></a>
+            <video width="320" height="240" controls>
+                <source src="{{forecast.mpg}}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
             <div ng-repeat="image in forecast.images">
                 <a href="{{image}}" class="thumbnail">
                     <p>

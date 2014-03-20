@@ -8,6 +8,10 @@ load_forecast_and_generate_plots(path)
   \item{path}{the path in which to store plots}
 }
 \description{
+Data are loaded in two groups for each of the 1 to 3 and 4
+to 7 forecast dats.
+}
+\details{
 Interval offset between the forecasts depends on how many
 hours are represented in the first three days. Due to the
 fact that this is not always 72 hours (e.g. when requesting

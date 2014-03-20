@@ -59,7 +59,7 @@ plot_dh_animation <- function(
     message("Converting png files to animated gif: ", target_path)
     system(command)
 
-    target_path <- file.path(path, sprintf('%s_degree_day_animation.mpg', file_date))
+    target_path <- file.path(path, sprintf('%s_degree_day_animation.mp4', file_date))
     command <- sprintf("convert -delay %sx1000 %s %s", delay, png_files, target_path)
     message("Converting png files to a movie: ", target_path)
     system(command)
