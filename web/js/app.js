@@ -25,6 +25,8 @@ function Ctrl($scope, $http) {
 
     $http.get(forecastsUrl)
         .then(function(res){
+
+            // Static forecast data:
             $scope.forecasts = [
                 {
                     name : "Days 1 to 3",
@@ -37,8 +39,11 @@ function Ctrl($scope, $http) {
                     hoursPerFrame : 6
                 }
             ];
+
+            // Dynamic forecast data:
             var forecasts = res.data;
             console.log("Loaded forecast JSON: ", forecasts);
+
             for(var i in forecasts) {
                 var forecast = forecasts[i];
                 var imagePaths = forecast.images.map(function(path) { return root + forecast.relativePath + "/" + path; });
@@ -48,6 +53,7 @@ function Ctrl($scope, $http) {
             }
 
             console.log("Forecasts in scope: ", $scope.forecasts);
+
         });
 
 }
