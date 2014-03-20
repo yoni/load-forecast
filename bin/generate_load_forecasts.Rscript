@@ -3,7 +3,10 @@
 # Leverages rbundler to install the package and its dependencies.
 
 setwd('Rpackage')
+
 library(rbundler)
 bundle()
 library(loadforecast)
+
 load_forecast_and_generate_plots('../out')
+write_forecast_json()
