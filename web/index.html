@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Heating and Cooling Load Forecast</title>
+
+    <!-- Bootstrap -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Heating and Cooling Load Forecast</a>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Heating and Cooling Load Forecast</h1>
+        <p>
+            Heating and cooling systems are by far the greatest consumers of energy in residential settings. Wouldn't it
+            be nice if we could forecast how much energy people are likely to expend on heating and cooling?
+        </p>
+        <p>
+            Using the weather forecast, we can estimate heating and cooling load by using
+            the concept of heating and cooling <a href="http://en.wikipedia.org/wiki/Heating_degree_day">degree hours</a>
+            , known as HDH and CDH. The idea is to assume a comfortable temperature, say 65&deg;F - we call this the balance
+            point - and see how far the forecast temperature will be from that balance point.
+        </p>
+        <p>
+            The number of degrees that the actual temperature point falls below the balance point, we call heating
+            degrees. Similarly, the  number of degrees that the forecast temperature falls above the balance point,
+            we call cooling degrees. In both cases, we disallow negative degree-hours, such that there will either be
+            zero or more HDH and CDH.
+        </p>
+        <p><a class="btn btn-primary btn-lg" role="button">Learn more about the implementation »</a></p>
+    </div>
+</div>
+
+<div class="container" ng-controller="Ctrl">
+    <div class="row">
+
+        <div ng-repeat="forecast in forecasts" class="col-md-6">
+            <h2>{{forecast.name}}</h2>
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+            <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
+            <a href="{{forecast.gif}}"><img ng-src="{{forecast.gif}}" height="50%" width="50%"/></a>
+            <div ng-repeat="image in forecast.images">
+                <a href="{{image}}" class="thumbnail">
+                    <p>
+                        {{$index * forecast.hoursPerFrame}} - {{$index * forecast.hoursPerFrame + forecast.hoursPerFrame}}
+                    </p>
+                    <img ng-src="{{image}}" height="15%" width="15%"/>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>© Yoni Ben-Meshulam 2014</p>
+    </footer>
+</div> <!-- /container -->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
+

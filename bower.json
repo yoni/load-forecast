@@ -1,0 +1,11 @@
+{
+  "name": "load-forecast",
+  "version": "0.0.0",
+  "homepage": "https://github.com/yoni/load-forecast",
+  "authors": [
+    "Yoni Ben-Meshulam <yoni.bmesh@gmail.com>"
+  ],
+  "description": "Heating and cooling load forecast",
+  "license": "MIT",
+  "private": true
+}
