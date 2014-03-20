@@ -1,7 +1,7 @@
 # Heating and Cooling Load Forecast
 
-A tool that visualizes the estimated heating and cooling load across the
-continental United States day-by-day, for one week into the future. 
+A tool that forecasts and visualizes the heating and cooling load across the
+continental United States.
 
 ## Prerequisites
 
