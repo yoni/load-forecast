@@ -26,14 +26,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Heating and Cooling Load Forecast</a>
+            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span> Heating and Cooling Load Forecast</a>
         </div>
     </div>
 </div>
 
 <div class="jumbotron">
     <div class="container">
-        <h1>Heating and Cooling Load Forecast</h1>
+        <h1><span class="glyphicon glyphicon-home"></span> Heating and Cooling Load Forecast</h1>
         <p>
             Heating, Ventilation, and Air Conditioning (HVAC) systems are the largest energy consuming devices in
             most buildings. Wouldn't it be nice if we could forecast how much energy buildings are likely to expend
@@ -67,7 +67,7 @@
                 in a single view.
             </p>
             <p class="alert alert-warning">
-                Issues and caveats:
+                <span class="glyphicon glyphicon-thumbs-down"></span> Caveats:
                 <ul>
                     <li>
                         Read why HDD and CDD methods for estimating load
@@ -97,8 +97,7 @@
                 </ul>
             </p>
             <p class="alert alert-info">
-                The implementation uses a series of libraries and APIs:
-
+                You can view the source at <a href="https://github.com/yoni/load-forecast">yoni/load-forecast</a>. Tools and APIs included:
             <ul>
                 <li>
                     The National Weather Service's <a href="http://www.nws.noaa.gov/ndfd/technical.htm">National Digital Forecast Database</a>.
@@ -107,17 +106,17 @@
                 <li>
                     <a href="http://www.r-project.org/">The R Project for Statistical Programming</a>, used to load weather forecast data,
                     calculate heating and cooling degree days, and plot results. Additional R package dependencies are required for this
-                    project to run. These may be found in the `DESCRIPTION` file under the R package root.
+                    project to run. These may be found in the <code>DESCRIPTION</code> file under the R package root.
                 </li>
                 <li>
-                    <a href="http://www.gdal.org/">gdal</a> -- Geospatial Data Abstraction Library. Backs the `rgdal` R package, which is used to
+                    <code><a href="http://www.gdal.org/">gdal</a></code> -- Geospatial Data Abstraction Library. Backs the <code><a href="http://cran.r-project.org/web/packages/rgdal/index.html">rgdal</a></code> R package, which is used to
                     load and plot weather forecast data.
                 </li>
                 <li>
-                    <a href="http://www.ffmpeg.org/">ffmpeg</a> -- used to generate the MPEG animated forecast
+                    <code><a href="http://www.ffmpeg.org/">ffmpeg</a></code> -- used to generate the MPEG animated forecast
                 </li>
                 <li>
-                    <a href="http://www.imagemagick.org/">ImageMagick</a> -- used to generate the GIF and MPEG animated forecasts
+                    <code><a href="http://www.imagemagick.org/">ImageMagick</a></code> -- used to generate the GIF and MPEG animated forecasts
                 </li>
             </ul>
 
