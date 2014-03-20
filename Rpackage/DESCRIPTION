@@ -8,6 +8,9 @@ Maintainer: Yoni Ben-Meshulam <yoni.bmesh@gmail.com>
 Depends:
     R (>= 2.15),
     rgdal,
-    rjson
+    rjson,
+    plyr,
+    reshape,
+    ggplot2
 Suggests:
     

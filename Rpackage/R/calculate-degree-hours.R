@@ -12,7 +12,7 @@
 #' @examples
 #' data(forecast)
 #' forecast.dh <- calculate_degree_hours(forecast)
-calculate_degree_hours <- function(forecast, balance_point=16) {
+calculate_degree_hours <- function(forecast, balance_point=BALANCE_POINT) {
 
   # Retrieves the value if it's positive, and zero otherwise
   nonNegativeValues <- function(values) {

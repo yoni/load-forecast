@@ -23,12 +23,14 @@ load_forecast_and_generate_plots <- function(path) {
 
     # Plot forecasts for days 1-3
     path1to3 <- file.path(path, "1to3")
+    unlink(path1to3, recursive=TRUE)
     dir.create(path1to3, showWarnings=FALSE, recursive=TRUE)
     forecast1to3.dh <- calculate_degree_hours(forecast1to3)
     plot_dh_animation(forecast1to3.dh, path1to3, start_time, hours_per_interval=3)
 
     # Plot forecasts for days 4-7
     path4to7 <- file.path(path, "4to7")
+    unlink(path4to7, recursive=TRUE)
     dir.create(path4to7, showWarnings=FALSE, recursive=TRUE)
     forecast4to7.dh <- calculate_degree_hours(forecast4to7)
     start_time_4to7 <- start_time + length(names(forecast1to3.dh)) * 3 * 60 * 60

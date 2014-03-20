@@ -2,7 +2,7 @@
 \alias{calculate_degree_hours}
 \title{Calculates degree days based on the temperature.}
 \usage{
-calculate_degree_hours(forecast, balance_point = 16)
+calculate_degree_hours(forecast, balance_point = BALANCE_POINT)
 }
 \arguments{
   \item{forecast}{a SpatialGridDataFrame of weather

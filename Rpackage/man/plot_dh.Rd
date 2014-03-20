@@ -3,7 +3,7 @@
 \title{Plots the degree-hours.}
 \usage{
 plot_dh(forecast, attribute, palette = c("dark blue", "white", "dark red"),
-  gradients = 50)
+  gradients = 50, balance_point = BALANCE_POINT)
 }
 \arguments{
   \item{forecast}{the weather forecast}

@@ -55,7 +55,7 @@
         </p>
         <p>
             <a class="btn btn-primary btn-lg" role="button" onclick="$('#more-info').toggleClass('hide')">
-                To delve deeper in the complexity of this problem and possible approaches, [Read More Here] »
+                To delve deeper in the implementation details and the complexity of this problem, READ MORE HERE »
             </a>
         </p>
         <div id="more-info" class="hide">
@@ -144,7 +144,7 @@
         </p>
     </div>
     <div class="row">
-        <div ng-repeat="forecast in forecasts" class="col-md-6">
+        <div ng-repeat="forecast in forecasts" class="col-md-5">
             <h2>{{forecast.name}}</h2>
             <p>
                 {{forecast.description}}
@@ -162,6 +162,13 @@
                     <img ng-src="{{image}}" height="15%" width="15%"/>
                 </a>
             </div>
+        </div>
+        <div class="col-md-2">
+            <p>
+                The color scheme ranges from the highest Cooling Degree Hours (CDH) in dark blue to the highest
+                Heating Degree Hours (HDH) in dark red.
+            </p>
+            <img src="../out/legend.png" />
         </div>
     </div>
 
