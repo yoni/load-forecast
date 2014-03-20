@@ -87,11 +87,6 @@
                         methodologies. If we were doing a deeper analysis, we might consider calculating heat buildup
                         over time, humidity, and individual household set points.
                     </li>
-					<li>
-                        The use of a dynamic three-color scale (i.e. blue, white, red) is problematic, since the color scheme will always
-                        fit the entire spectrum. I.e. the actual plot intensities will vary by season, and always show
-                        a high heating and high cooling regions. Instead, we need to tie color hues to precise values.
-                    </li>
                     <li>
                         The dates and times are very likely off by up to three hours, and almost definitely have the wrong time zone, since we're using the current system time as an estimate for the start of the forecasts. We need to dig into the NDFD API and see if there's metadata we can use to address this.
                     </li>
