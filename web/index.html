@@ -67,7 +67,7 @@
                 in a single view.
             </p>
             <p class="alert alert-warning">
-                Some caveats:
+                Issues and caveats:
                 <ul>
                     <li>
                         Read why HDD and CDD methods for estimating load
@@ -78,6 +78,11 @@
                         loads will be skewed by short-term differences in temperature, showing more extreme heating and
                         cooling forecasts. That said, from a certain lens, one might consider this a "feature", since we
                         also benefit from more granular forecasts.
+                    </li>
+                    <li>
+                        The use of a dynamic three-color scale (i.e. blue, white, red) is problematic, since the color scheme will always
+                        fit the entire spectrum. I.e. the actual plot intensities will vary by season, and always show
+                        a high heating and high cooling regions. Instead, we need to tie color hues to precise values.
                     </li>
                     <li>
                         A good next step would be to introduce regional average set points for load estimation, using
